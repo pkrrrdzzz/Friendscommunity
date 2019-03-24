@@ -204,7 +204,7 @@ client.on('message',async message => {
     
 if(message.author.bot) return;
 if(!credits[message.author.id]) credits[message.author.id] = {
-    credits: 1000
+    credits: 50
 };
 
 let userData = credits[message.author.id];
@@ -214,7 +214,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
     if (err) console.error(err);
   });
   credits[message.author.id] = {
-      credits: m + 5000.5,
+      credits: m + 0.5,
   }
   
     if(message.content.startsWith(prefix + "credit" || prefix + "credits")) {
@@ -223,7 +223,7 @@ message.channel.send(`**${message.author.username}, your :credit_card: balance i
 });
 
 client.on('message', async message => {
-    let amount = 2000000;
+    let amount = 250;
     if(message.content.startsWith(prefix + "daily")) {
     if(message.author.bot) return;
     if(coolDown.has(message.author.id)) return message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes in \`\`1 Day\`\`.**`);
@@ -247,9 +247,8 @@ client.on('message', async message => {
     },86400000);
     }
 });
-
-
-
+    
+    
 client.on('message', message => {
      if(!message.channel.guild) return;
                 if(message.content.startsWith(prefix + 'allbots')) {
@@ -295,7 +294,7 @@ client.on('message', function(msg) {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO 3bker Community ©`` ')
+            .setTitle('``INFO Friends Community ©`` ')
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
@@ -305,7 +304,7 @@ client.on('message', function(msg) {
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
 			      .addField('``My Prefix``' , `[ ! ]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
-			      .setFooter('By | 3bker')
+			      .setFooter('By | poker')
     })
 }
 });
@@ -392,7 +391,7 @@ client.on('message', message => {
             message.channel.send({embed: {
                 color: 3447003,
                 author: {
-                  name: '3bker Community ©\'s translator',
+                  name: 'Friends Community ©\'s translator',
                   icon_url: client.user.avatarURL
                 },
                 fields: [{
@@ -403,7 +402,7 @@ client.on('message', message => {
                 timestamp: new Date(),
                 footer: {
                   icon_url: client.user.avatarURL,
-                  text: "3bker Community ©"
+                  text: "Friends Community ©"
                 }
             }}
             )
@@ -580,7 +579,7 @@ client.on("message", message => {
    message.channel.send({embed});
       }
   });
-  
+
    client.on('message',function(message) {
   if (message.author.bot) return;
                   if(!message.channel.guild) return;
@@ -722,7 +721,7 @@ message.channel.send(
 });
 client.on('message' , message => {
 if (message.author.bot) return;
-if (message.content.startsWith(prefix + "contact")) {
+if (message.content.startsWith(prefix + "contacuut")) {
 if (!message.channel.guild) return;
 
 
@@ -787,7 +786,7 @@ if(message.content.startsWith('fc!bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "3bker Community ©";
+let copy = "Friends Community ©";
 let request = `Requested By ${message.author.username}`;
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
 msg.react('✅')
