@@ -197,14 +197,14 @@ ${prefix}voiceonline / لتفعيل روم الفويس اونلاين
     }
 }); 
 
-const credits = JSON.parse(fs.readFileSync("./creditsCode.json", "utf8"));
+ const credits = JSON.parse(fs.readFileSync("./creditsCode.json", "utf8"));
 const coolDown = new Set();
 
 client.on('message',async message => {
     
 if(message.author.bot) return;
 if(!credits[message.author.id]) credits[message.author.id] = {
-    credits: 50
+    credits: 1000
 };
 
 let userData = credits[message.author.id];
@@ -214,7 +214,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
     if (err) console.error(err);
   });
   credits[message.author.id] = {
-      credits: m + 0.5,
+      credits: m + 5000.5,
   }
   
     if(message.content.startsWith(prefix + "credit" || prefix + "credits")) {
@@ -223,7 +223,7 @@ message.channel.send(`**${message.author.username}, your :credit_card: balance i
 });
 
 client.on('message', async message => {
-    let amount = 250;
+    let amount = 2000000;
     if(message.content.startsWith(prefix + "daily")) {
     if(message.author.bot) return;
     if(coolDown.has(message.author.id)) return message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes in \`\`1 Day\`\`.**`);
@@ -247,6 +247,8 @@ client.on('message', async message => {
     },86400000);
     }
 });
+
+
 
 client.on('message', message => {
      if(!message.channel.guild) return;
